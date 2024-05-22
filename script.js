@@ -18,47 +18,45 @@ const display=(posts)=>{
     // console.log(kidsCard);
     const newKidsCard=document.createElement('div');
     newKidsCard.innerHTML=`
-    <section class="flex justify-between justify-items-center items-center">
-    <div>
-    <img src="${post.image}" alt="" srcset="">
-    </div>
-    <div>
-    <div class="items-center">
-    <div class="flex "> 
-    <h5 class="mx-5"># ${post.category}</h5>
-    <h5>author: ${post.author.name}</h5>
-    </div>
-    <div>
-    <h3 id="post-title">${post.title}</h3>
-    <p>${post.description}</p>
-    </div>
-    </div>
+<section class="lg:flex justify-between  items-center m-4">
+  <div>
+            <img src="${post.image}" alt="" srcset="">
+  </div>
+  <div>
+       <div class="items-center">
+          <div class="flex "> 
+             <h5 class="mx-5"># ${post.category}</h5>
+             <h5>author: ${post.author.name}</h5>
+          </div>
+          <div>
+              <h3 id="post-title">${post.title}</h3>
+              <p>${post.description}</p>
+           </div>
+       </div>
     
-    <hr >
+           <hr >
     <div class="flex justify-between">
-    <div class=" flex justify-around ">
-    <div class= "flex justify-between items-center">
-    <img src="images/Group 13.png" alt="" srcset="">
-    <p>${post.comment_count }</p>
+       <div class=" flex justify-around ">
+           <div class= "flex justify-between items-center">
+               <img src="images/Group 13.png" alt="" srcset="">
+               <p>${post.comment_count }</p>
+            </div>
+            <div id="capture-view"  class= "flex justify-between   items-center">
+               <img id="icon-image" src="images/Group 16.png" alt="" srcset="">
+               <p>${post. view_count}</p>
+            </div>
+            <div  class= "flex justify-between items-center">
+               <img src="images/Group 18.png" alt="" srcset="">
+               <p>${post. posted_time}</p>
+            </div>
+        </div>
+        <div>
+            <button  onclick="messageButton()" ><img src="images/Group 40106.png" alt="" srcset=""> </button>
+        </div>
     </div>
-    <div id="capture-view"  class= "flex justify-between items-center">
-     <img id="icon-image" src="images/Group 16.png" alt="" srcset="">
-    <p>${post. view_count}</p>
-    </div>
-    <div  class= "flex justify-between items-center">
-    <img src="images/Group 18.png" alt="" srcset="">
-    <p>${post. posted_time}</p>
-    </div>
-    </div>
-    <div>
-    <button  onclick="messageButton()" ><img src="images/Group 40106.png" alt="" srcset=""> </button>
-    </div>
-    </div>
-    </div>
-    </section>
-
-    
-    `;
+  </div>
+</section>
+`;
     kidsCard.appendChild(newKidsCard) ;
 // -----------------------------------------------
 
@@ -93,7 +91,7 @@ posts.forEach(post=>{
     
     // console.log(updatePost);
     const postCard=document.createElement('div');
-     postCard.innerHTML=`
+     postCard.innerHTML=`<div class="m-4">
      <img src="${post.cover_image}" alt="" srcset="">
      <div class="flex">
      <img src="images/Frame (1).png" alt="" srcset="">
@@ -110,7 +108,7 @@ posts.forEach(post=>{
      <p>${post.author.designation}</p>
      </div>
      </div>
-     `
+     </div>`
      updatePost.appendChild(postCard);
 
     //  const newMessage=document.getElementById('message-button');
@@ -119,18 +117,6 @@ posts.forEach(post=>{
 }
 
 latestPost();
-
-// const messageButton=()=>{
-// const newMessage=document.getElementById('count-number');
-//      newMessageCount=parseInt(newMessage.innerText)+1;
-//      newMessage.innerText=newMessageCount;
-
-//      const messageDetails=document.getElementById('message-details');
-//      newMessageDetails=document.createElement('div')
-//      newMessageDetails.innerHTML=`
-//      `
-// }
-
 
 const messageButton=()=>{
 
