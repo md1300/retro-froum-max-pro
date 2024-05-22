@@ -2,20 +2,20 @@
 // .then(res=>res.json())
 // .then(data=>console.log(data))
 
-const discussSession=async(categoryName)=>{
+const discussSession=async(categoryName,)=>{
     const res=await fetch(`https://openapi.programming-hero.com/api/retro-forum/posts?category=${categoryName}`)
     const data=await res.json();
     
     const forum=data.posts;
 //    console.log(forum);
-    display(forum)
+    display(forum,)
 };
 
 
 const display=(posts)=>{
     posts.forEach((post)=>{
     const kidsCard=document.getElementById('kids-card')
-    console.log(kidsCard);
+    // console.log(kidsCard);
     const newKidsCard=document.createElement('div');
     newKidsCard.innerHTML=`
     <section class="flex justify-between justify-items-center items-center">
@@ -29,7 +29,7 @@ const display=(posts)=>{
     <h5>author: ${post.author.name}</h5>
     </div>
     <div>
-    <h3>${post.title}</h3>
+    <h3 id="post-title">${post.title}</h3>
     <p>${post.description}</p>
     </div>
     </div>
@@ -41,8 +41,8 @@ const display=(posts)=>{
     <img src="images/Group 13.png" alt="" srcset="">
     <p>${post.comment_count }</p>
     </div>
-    <div  class= "flex justify-between items-center">
-     <img src="images/Group 16.png" alt="" srcset="">
+    <div id="capture-view"  class= "flex justify-between items-center">
+     <img id="icon-image" src="images/Group 16.png" alt="" srcset="">
     <p>${post. view_count}</p>
     </div>
     <div  class= "flex justify-between items-center">
@@ -51,15 +51,18 @@ const display=(posts)=>{
     </div>
     </div>
     <div>
-    <img src="images/Group 40106.png" alt="" srcset="">
+    <button  onclick="messageButton()" ><img src="images/Group 40106.png" alt="" srcset=""> </button>
     </div>
     </div>
     </div>
     </section>
 
-    <h3>${post.isActive}</h3>
+    
     `;
     kidsCard.appendChild(newKidsCard) ;
+// -----------------------------------------------
+
+// -------------------------------------
    });
     
 }
@@ -67,7 +70,7 @@ const display=(posts)=>{
 const searchButton=()=>{
     const searchField=document.getElementById('search-field');
     const searchText=searchField.value;
-    console.log(searchText);
+    // console.log(searchText);
     discussSession(searchText)
 
 }
@@ -86,7 +89,7 @@ const displayPost=(posts)=>{
 const updatePost=document.getElementById('latest-post');
 
 posts.forEach(post=>{
-    console.log(post)
+    // console.log(post)
     
     // console.log(updatePost);
     const postCard=document.createElement('div');
@@ -109,9 +112,51 @@ posts.forEach(post=>{
      </div>
      `
      updatePost.appendChild(postCard);
+
+    //  const newMessage=document.getElementById('message-button');
+    //  console.log("newMessage");
 })
 }
+
 latestPost();
+
+// const messageButton=()=>{
+// const newMessage=document.getElementById('count-number');
+//      newMessageCount=parseInt(newMessage.innerText)+1;
+//      newMessage.innerText=newMessageCount;
+
+//      const messageDetails=document.getElementById('message-details');
+//      newMessageDetails=document.createElement('div')
+//      newMessageDetails.innerHTML=`
+//      `
+// }
+
+
+const messageButton=()=>{
+
+
+    const newMessage=document.getElementById('count-number');
+         newMessageCount=parseInt(newMessage.innerText)+1;
+         newMessage.innerText=newMessageCount;
+    
+         const messageDetails=document.getElementById('message-details');
+         const postTitle=document.getElementById('post-title')
+         const newMessageTitle=document.createElement('div');
+         newMessageTitle.innerHTML=postTitle.innerText;
+         messageDetails.appendChild(newMessageTitle);
+
+
+          const countDetails=document.getElementById('count-details');
+         const captureView=document.getElementById('capture-view');
+         newMessageDetails=document.createElement('div');
+         newMessageDetails.innerHTML=captureView.innerText;
+         countDetails.appendChild(newMessageDetails);
+
+         const iconShow=document.getElementById('icon-show')
+         const iconImage=document.getElementById('icon-image');
+         iconShow.appendChild(iconImage);
+
+    }
 
 
 
