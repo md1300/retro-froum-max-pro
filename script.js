@@ -59,9 +59,7 @@ const display=(posts)=>{
 </section>
 `;
     kidsCard.appendChild(newKidsCard) ;
-// -----------------------------------------------
 
-// -------------------------------------
    });
     
 }
