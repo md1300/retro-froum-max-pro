@@ -120,11 +120,11 @@ latestPost();
 
 const messageButton=()=>{
 
-
+// -----------------------------------
     const newMessage=document.getElementById('count-number');
          newMessageCount=parseInt(newMessage.innerText)+1;
          newMessage.innerText=newMessageCount;
-    
+// --------------------------------------
          const messageDetails=document.getElementById('message-details');
          const postTitle=document.getElementById('post-title')
          const newMessageTitle=document.createElement('div');
@@ -138,7 +138,7 @@ const messageButton=()=>{
          newMessageDetails.innerHTML=captureView.innerText;
          countDetails.appendChild(newMessageDetails);
 
-         const iconShow=document.getElementById('icon-show')
+         const iconShow=document.getElementById('icon-show');
          const iconImage=document.getElementById('icon-image');
          iconShow.appendChild(iconImage);
 
