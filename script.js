@@ -18,23 +18,24 @@ const display=(posts)=>{
     // console.log(kidsCard);
     const newKidsCard=document.createElement('div');
     newKidsCard.innerHTML=`
-<section class="lg:flex justify-between  items-center m-4">
-  <div>
-            <img src="${post.image}" alt="" srcset="">
+<section class="lg:flex justify-between  items-center m-4 bg-red-50">
+  <div class="indicator">
+            <span class="indicator-item badge badge-secondary"></span>
+             <img class="w-24 rounded-full" src="${post.image}" alt="" srcset="">          
   </div>
-  <div>
+   <div class="m-8">
        <div class="items-center">
-          <div class="flex "> 
-             <h5 class="mx-5"># ${post.category}</h5>
+          <div class="flex justify-between "> 
+             <h5 ># ${post.category}</h5>
              <h5>author: ${post.author.name}</h5>
           </div>
           <div>
-              <h3 id="post-title">${post.title}</h3>
-              <p>${post.description}</p>
+              <h3 id="post-title" class="my-4">${post.title}</h3>
+              <p class="my-4">${post.description}</p>
            </div>
        </div>
     
-           <hr >
+           <hr class="my-16">
     <div class="flex justify-between">
        <div class=" flex justify-around ">
            <div class= "flex justify-between items-center">
@@ -93,19 +94,19 @@ posts.forEach(post=>{
     const postCard=document.createElement('div');
      postCard.innerHTML=`<div class="m-4">
      <img src="${post.cover_image}" alt="" srcset="">
-     <div class="flex">
+     <div class="flex my-2">
      <img src="images/Frame (1).png" alt="" srcset="">
      <p>${post.author.posted_date}</p>
      </div>
      <h4>${post.title}</h4>
-     <p>${post.description}</p>
-     <div class="flex justify-between items-center ">
+     <p class="my-2">${post.description}</p>
+     <div class="flex justify-between items-center my-3">
      <div>
-     <img src="${post.profile_image}" alt="" srcset="">
+     <img class="w-24 rounded-full" src="${post.profile_image}" alt="" srcset="">
      </div>
      <div>
      <h4>${post.author.name}</h4>
-     <p>${post.author.designation}</p>
+     <p class="my-4">${post.author.designation}</p>
      </div>
      </div>
      </div>`
